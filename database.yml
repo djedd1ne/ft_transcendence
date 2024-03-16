@@ -1,8 +1,0 @@
-development:
-  adapter: jdbcpostgresql
-  database: my_pong_database
-  host: localhost
-  username: your_username
-  password: your_password
-
-
