@@ -161,48 +161,44 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form action="index.html">
-    <!-- <img class="mb-4" src="./img/42logo.jpeg" alt="" width="100" height="100">  -->
-    <div class="d-flex justify-content-center align-items-center">
+  <main class="form-signin w-100 m-auto">
+    <form action="index.html" onsubmit="return validateForm()">
+      <div class="d-flex justify-content-center align-items-center">
         <img class="mb-4" src="./assets/img/42logo.jpeg" alt="" width="100" height="100">
       </div>
-    <h1 class="h6 mb-3 fw-normal justify-content-center align-items-center">  Please Use Your 42_Intra to sign in</h1>
-
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">42 Intra Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <div class="form-floating">
-      <input type="username" class="form-control" id="floatingusername" placeholder="Username">
-      <label for="floatingUsername">Username</label>
-    </div>
-
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <!-- <button class="btn btn-primary w-100 py-2" @click="goweb" type="submit">Sign in</button> -->
-        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-
-        <div class="social d-flex justify-content-center" style="margin-top: 40px;">
-          <a class="mx-2" href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
-            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
-          </svg></a>
-          <a class="mx-2" href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 20px; color: black;" width="40" height="40" fill="currentColor" class="bi bi-phone-fill" viewBox="0 0 16 16">
-            <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
-          </svg></a>
+      <h1 class="h6 mb-3 fw-normal justify-content-center align-items-center">Please Use Your 42_Intra to sign in</h1>
+  
+      <div class="form-floating">
+        <input type="text" class="form-control" id="username" placeholder="42 Intra Name" required>
+        <label for="username">42 Intra Name</label>
       </div>
-    <p class="mt-5 mb-3 text-body-secondary">
-      <a class="mx-2" href="#!"><img src="./assets/img/42_Logo.svg" alt="Icon Description" width="30" height="30"></a>&copy; 2023</p>
-  </form>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
+        <label for="password">Password</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingusername" placeholder="Username" required>
+        <label for="floatingusername">Username</label>
+      </div>
+  
+      <div class="form-check text-start my-3">
+        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+      </div>
+  
+      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+  
+      <div class="social d-flex justify-content-center" style="margin-top: 40px;">
+        <a class="mx-2" href="./index.html"><img src="./assets/img/google.svg" alt="Google" width="40" height="40"></a>
+        <a class="mx-2" href="./index.html"><img src="./assets/img/phone.svg" alt="Phone" width="40" height="40"></a>
+      </div>
+  
+      <p class="mt-5 mb-3 text-body-secondary">
+        <a class="mx-2" href="#!"><img src="./assets/img/42_Logo.svg" alt="42 Logo" width="30" height="30"></a>&copy; 2023</p>
+    </form>
 </main>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
 
     </body>
 </html>

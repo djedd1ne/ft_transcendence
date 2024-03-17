@@ -41,11 +41,13 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="../Game.html">Game</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Chat</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="profileLink">Profile</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
+        </div>
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
@@ -58,6 +60,37 @@
             </div>
         </header>
         <!-- About-->
+        <!--dashboard-->
+        <div class="container profile-dashboard" id="profileDashboard" style="display: none;">
+            <div class="dashboard-content">
+                <!-- Avatar section -->
+                <div class="avatar-circle">
+                    <img src="default-avatar.png" alt="Avatar">
+                </div>
+                <input type="file" class="avatar-upload" id="avatarUpload">
+                <label for="avatarUpload" class="avatar-label">Change Avatar</label>
+        
+                <!-- Your profile dashboard content here -->
+                <div>
+                    <!-- Clickable items -->
+                    <div class="profile-item" onclick="navigateTo('edit-profile.html')">
+                        <h4>Edit Profile</h4>
+                        <p>Update your personal information</p>
+                    </div>
+                    <div class="profile-item" onclick="navigateTo('friends.html')">
+                        <h4>Friends</h4>
+                        <p>View and manage your friends list</p>
+                    </div>
+                    <div class="profile-item" onclick="navigateTo('played-matches.html')">
+                        <h4>Played Matches</h4>
+                        <p>View your history of played matches</p>
+                    </div>
+                    <!-- Add more clickable items as needed -->
+                </div>
+            </div>
+        </div>
+        
+
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -73,6 +106,7 @@
                 <img class="img-fluid" src="assets/img/42studebnt.avif" alt="..." />
             </div>
         </section>
+
         <!-- Projects-->
         <section class="projects-section bg-light" id="projects">
             <div class="container px-4 px-lg-5">
@@ -222,5 +256,39 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script>
+            // JavaScript to toggle profile dashboard visibility and disable about section
+            document.getElementById("profileLink").addEventListener("click", function (event) {
+                event.preventDefault();
+                var profileDashboard = document.getElementById("profileDashboard");
+                var aboutSection = document.getElementById("about");
+                if (profileDashboard.style.display === "none") {
+                    profileDashboard.style.display = "block";
+                    aboutSection.style.pointerEvents = "none";
+                } else {
+                    profileDashboard.style.display = "none";
+                    aboutSection.style.pointerEvents = "auto";
+                }
+            });
+        </script>
+        <script>
+            var lastScrollTop = 0;
+            var navbarHeight = document.getElementById('mainNav').offsetHeight; // Adjust if your navbar height changes
+        
+            window.addEventListener('scroll', function () {
+                var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+                if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
+                    // Scrolling down, hide profile dashboard
+                    document.getElementById('profileDashboard').style.top = '-100%';
+                } else {
+                    // Scrolling up, show profile dashboard
+                    document.getElementById('profileDashboard').style.top = '0';
+                }
+        
+                lastScrollTop = currentScroll;
+            });
+        </script>
     </body>
 </html>
