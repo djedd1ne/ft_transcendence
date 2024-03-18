@@ -61,34 +61,54 @@
         </header>
         <!-- About-->
         <!--dashboard-->
-        <div class="container profile-dashboard" id="profileDashboard" style="display: none;">
-            <div class="dashboard-content">
-                <!-- Avatar section -->
-                <div class="avatar-circle">
-                    <img src="default-avatar.png" alt="Avatar">
+<!-- Profile Dashboard -->
+<div class="container profile-dashboard" id="profileDashboard" style="display: none;">
+    <div class="dashboard-content">
+        <!-- Left Section -->
+        <div class="left-section">
+            <!-- Avatar section -->
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <div class="avatar-circle">
+                        <img src="default-avatar.png" alt="Avatar">
+                    </div>
+                    <input type="file" class="avatar-upload" id="avatarUpload">
                 </div>
-                <input type="file" class="avatar-upload" id="avatarUpload">
-                <label for="avatarUpload" class="avatar-label">Change Avatar</label>
-        
-                <!-- Your profile dashboard content here -->
-                <div>
-                    <!-- Clickable items -->
-                    <div class="profile-item" onclick="navigateTo('edit-profile.html')">
-                        <h4>Edit Profile</h4>
-                        <p>Update your personal information</p>
-                    </div>
-                    <div class="profile-item" onclick="navigateTo('friends.html')">
-                        <h4>Friends</h4>
-                        <p>View and manage your friends list</p>
-                    </div>
-                    <div class="profile-item" onclick="navigateTo('played-matches.html')">
-                        <h4>Played Matches</h4>
-                        <p>View your history of played matches</p>
-                    </div>
-                    <!-- Add more clickable items as needed -->
-                </div>
+                <button class="choose-avatar-btn" onclick="document.getElementById('avatarUpload').click()">Choose Avatar</button>
             </div>
+            <br>
+            <!-- Clickable items for left section -->
+            <div class="profile-item" onclick="showPersonalInformation()">
+                <h4>Personal Information</h4>
+                <p>View and edit your personal information</p>
+            </div>
+            <div class="profile-item" onclick="showFriendsList()">
+                <h4>Friends List</h4>
+                <p>View and manage your friends list</p>
+            </div>
+            <div class="profile-item" onclick="showPlayedMatches()">
+                <h4>Played Matches</h4>
+                <p>View your history of played matches</p>
+            </div>
+            <!-- Add more clickable items for left section as needed -->
         </div>
+
+<!-- Right Section -->
+<div class="right-section" id="rightSection">
+    <!-- Personal Information -->
+    <h3>Personal Information</h3>
+    <div class="personal-info">
+        <p><strong>First Name:</strong> John</p>
+        <p><strong>Last Name:</strong> Doe</p>
+        <p><strong>Email:</strong> johndoe@example.com</p>
+        <p><strong>Date of Birth:</strong> 1990-01-01</p>
+        <p><strong>Phone:</strong> 123-456-7890</p>
+    </div>
+    <!-- Edit button -->
+    <button onclick="editPersonalInformation()">Edit</button>
+</div>
+    </div>
+</div>
         
 
         <section class="about-section text-center" id="about">
@@ -290,5 +310,118 @@
                 lastScrollTop = currentScroll;
             });
         </script>
+
+<script>
+    // Function to navigate to the specified URL
+    function navigateTo(url) {
+        window.location.href = url;
+    }
+
+    // Function to handle avatar upload
+    document.getElementById('avatarUpload').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.querySelector('.avatar-section img').setAttribute('src', e.target.result);
+        }
+        reader.readAsDataURL(file);
+    });
+
+// Function to display personal information in the right section
+function showPersonalInformation() {
+    var rightSection = document.querySelector('.right-section');
+    rightSection.innerHTML = `
+        <h3>Personal Information</h3>
+        <div class="personal-info">
+            <p><strong>First Name:</strong> John</p>
+            <p><strong>Last Name:</strong> Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Date of Birth:</strong> 1990-01-01</p>
+            <p><strong>Phone:</strong> 123-456-7890</p>
+        </div>
+        <!-- Edit button -->
+        <button onclick="editPersonalInformation()">Edit</button>
+    `;
+}
+
+// Function to enable editing of personal information
+function editPersonalInformation() {
+    var personalInfo = document.querySelector('.personal-info');
+    personalInfo.innerHTML = `
+        <form id="personalInfoForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" value="John"><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" value="Doe"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="johndoe@example.com"><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" value="1990-01-01"><br>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" value="123-456-7890"><br>
+
+            <!-- Save Changes button -->
+            <button type="button" onclick="savePersonalInformation()">Save Changes</button>
+        </form>
+    `;
+}
+
+// Function to save changes to personal information
+function savePersonalInformation() {
+    var form = document.getElementById('personalInfoForm');
+
+    // Initialize an object to store edited fields
+    var editedFields = {};
+
+    // Loop through form elements
+    for (var i = 0; i < form.elements.length; i++) {
+        var input = form.elements[i];
+        if (input.tagName === 'INPUT') {
+            // Get the initial value
+            var initialValue = input.getAttribute('value');
+            // Get the current value
+            var currentValue = input.value;
+
+            // Check if the value has changed from the initial value
+            if (currentValue !== initialValue) {
+                // If changed, add it to the edited fields object
+                editedFields[input.name] = currentValue;
+            }
+        }
+    }
+
+    // Log the edited fields
+    console.log("Edited Fields:", editedFields);
+
+    // After logging, display the updated personal information
+    showPersonalInformation();
+}
+
+// Display initial personal information
+showPersonalInformation();
+    // Function to display friends list in the right section
+    function showFriendsList() {
+        var rightSection = document.querySelector('.right-section');
+        rightSection.innerHTML = `
+            <h3>Friends List</h3>
+            <p>This is where your friends list will be displayed.</p>
+            <!-- Add functionality to manage friends list -->
+        `;
+    }
+
+    // Function to display played matches in the right section
+    function showPlayedMatches() {
+        var rightSection = document.querySelector('.right-section');
+        rightSection.innerHTML = `
+            <h3>Played Matches</h3>
+            <p>This is where your history of played matches will be displayed.</p>
+            <!-- Add functionality to view match history -->
+        `;
+    }
+</script>
     </body>
 </html>
