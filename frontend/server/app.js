@@ -1,9 +1,9 @@
 // const Express = require("express")();
 // const Http = require("http").Server(Express);
 // const Socketio = require("socket.io")(Http);
-const ballVelocity = 4;
-const barVelocity = 20;
-var bootVelocity = 18;
+const ballVelocity = 6;
+const barVelocity = 30;
+var bootVelocity = 28;
 var velocityPercent = 0;
 var directionX = Math.random() < 0.5 ? 1 : -1;
 var directionY = Math.random() < 0.5 ? 1 : -1;
@@ -140,18 +140,67 @@ io.on("connection", (socket) => {
                     io.emit("dataup", positions, positions2);
                     break;
                 }
-            }
+        }
+        else if (id == 99)
+        {
+                positions2.ly = positions2.y;
+                positions.ly = positions.y;
+                if (data) {
+                    if (data == "W"){
+                        if (positions.y > 0)
+                        {
+                            positions.ly = positions.y;
+                            positions.y -= barVelocity;
+                        }
+                            io.emit("dataup", positions, positions2);
+                        }
+                    if (data == "S"){
+                        if (positions.y < 360)
+                        {
+                            positions.ly = positions.y;
+                            positions.y += barVelocity;
+                        }
+                            io.emit("dataup", positions, positions2);
+                        }
+                    if (data == "up"){
+                        if (positions2.y > 0)
+                            positions2.y -= barVelocity;
+                        io.emit("dataup", positions, positions2);
+                    }
+                    if (data == "down"){
+                        if (positions2.y < 360)
+                            positions2.y += barVelocity;
+                        io.emit("dataup", positions, positions2);
+                    }
+                    }
+        }
 
     });
     socket.on("boot", data => {
             if (data == 111)
-                    bootVelocity = 0;
+                    bootVelocity = 29;
             positions2.ly = positions2.y;
             if (ballpositions.y < positions2.y)
                 positions2.y -= barVelocity - bootVelocity;
             else if (ballpositions.y > positions2.y + 100)
                 positions2.y += barVelocity - bootVelocity;
             io.emit("dataup", positions, positions2);
+            // function getRandomNumber(min, max) {
+            //     // Generate a random decimal between 0 and 1
+            //     const randomDecimal = Math.random();
+                
+            //     // Scale and shift the random decimal to fit within the range [min, max]
+            //     const randomNumber = min + randomDecimal * (max - min);
+                
+            //     // Return the random number
+            //     return randomNumber;
+            // }
+            
+            // // Example usage:
+            // const min = 10;
+            // const max = 20;
+            // const randomValue = getRandomNumber(min, max);
+            // console.log(randomValue);
     });
     socket.on("ballmove", data => {
             if(ballpositions.x <= ballVelocity && (ballpositions.y < positions.y || ballpositions.y > positions.y + 120))

@@ -26,6 +26,16 @@
         <script defer="defer" src="../js/chunk-vendors.6c2b39ce.js"></script>
         <script defer="defer" src="../js/app.13edba59.js"></script>
         <link href="../dist/css/app.20c49b21.css" rel="stylesheet">
+        <script defer="defer" src="../dist25/js/chunk-vendors.46ee1ae4.js"></script>
+
+        <script defer="defer" src="../js/chunk-vendors.46ee1ae4.js"></script>
+        <script defer="defer" src="../js/app.dcc82059.js"></script>
+        <link href="../css/app.0c6d5326.css" rel="stylesheet">
+        <link href="../WebPage/css/styles.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -40,7 +50,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="../Game.html">Game</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Chat</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="chatLink">Chat</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" id="profileLink">Profile</a></li>
                     </ul>
                 </div>
@@ -110,7 +120,71 @@
     </div>
 </div>
         
+<div class="game25" id="app2" style="display: none !important;">
+    <div class="game25" id="app">
+    </div>
+    <button onclick="toggleVisibility2()">[X]</button>
+</div>
 
+        <!-- Chat Dashboard -->
+        <div id="chatDashboard">
+            <div class="friend-list">
+                <!-- Example list of friends -->
+                <!-- Friend 1 -->
+                <div class="friend" id="friend1" data-menu="menu1" data-content="send-message">
+                    <div class="friend-avatar"></div>
+                    <div class="friend-name">Friend 1</div>
+                </div>
+                <!-- Friend 2 -->
+                <div class="friend" id="friend2" data-menu="menu2" data-content="send-message">
+                    <div class="friend-avatar"></div>
+                    <div class="friend-name">Friend 2</div>
+                </div>
+                <!-- Friend 3 -->
+                <div class="friend" id="friend3" data-menu="menu3" data-content="send-message">
+                    <div class="friend-avatar"></div>
+                    <div class="friend-name">Friend 3</div>
+                </div>
+            </div>
+            <div class="menu">
+                <!-- Menu content -->
+                <div id="menu1" class="menu-options">
+                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
+                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
+                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
+                </div>
+                <div id="menu2" class="menu-options">
+                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
+                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
+                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
+                </div>
+                <div id="menu3" class="menu-options">
+                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
+                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
+                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
+                </div>
+            </div>
+            <div class="content right-section">
+                <!-- Content placeholders for each action -->
+                <div id="send-message" style="display: none;">
+                    <textarea placeholder="Enter your message" style="font-size: 16px; width: 100%; height: 200px; border-radius: 10px;"></textarea>
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+                <div id="add-friend" style="display: none;">
+                    Add Friend Form
+                </div>
+                <div id="invite-game" style="display: none;">
+                    Invite to Game Form
+                </div>
+            </div>
+        </div>
+        
+        
+    
+        
+    
+    
+</div>
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -128,6 +202,7 @@
         </section>
 
         <!-- Projects-->
+        
         <section class="projects-section bg-light" id="projects">
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row -->
@@ -137,7 +212,8 @@
                         <div class="featured-text text-center text-lg-left">
                             <h4>PONG</h4>
                             <p class="text-black-50 mb-0">Pong is a table tennis–themed twitch arcade sports video game, featuring simple two-dimensional graphics, manufactured by Atari and originally released in 1972.</p>
-                            <a class="btn btn-success" href="../Game.html">Play</a>
+                            <!-- <a class="btn btn-success" onclick="document.getElementById('app').click()">Play</a> -->
+                            <button onclick="toggleVisibility2()">Play Now</button>
                         </div>
                     </div>
                 </div>
@@ -171,7 +247,6 @@
                 </div>
             </div>
             <!-- <div class="myGame" id="app">
-                <h1 style="font-size: 3em; text-align: center;">Big Text</h1>
             </div> -->
         </section>
         <!-- Signup-->
@@ -265,6 +340,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; 42 Heilbronn 2023</div></footer>
         <!-- Bootstrap core JS-->
@@ -292,7 +368,44 @@
                 }
             });
         </script>
+
         <script>
+            document.addEventListener("keydown", function(event) {
+                // Check if the pressed key is one of the arrow keys
+                var element = document.getElementById("app2");
+                if (event.key.startsWith("Arrow")) {
+                    // Prevent the default behavior of arrow key press
+                    if (element.style.display != "none") {
+                        event.preventDefault();}
+                }
+            });
+        </script>
+        <script>
+            function toggleVisibility2() {
+                var element = document.getElementById("app2");
+                if (element.style.display === "none") {
+                    element.style.display = "block"; // Or whatever the original display value was
+                } else {
+                    element.style.display = "none";
+                }
+            }
+        </script>
+        <!-- <script>
+            // JavaScript to toggle profile dashboard visibility and disable about section
+            document.getElementById("theGame").addEventListener("click", function (event) {
+                event.preventDefault();
+                var pingpong = document.getElementById("app");
+                var aboutSection = document.getElementById("about");
+                if (pingpong.style.display === "none") {
+                    pingpong.style.display = "block";
+                    aboutSection.style.pointerEvents = "none";
+                } else {
+                    pingpong.style.display = "none";
+                    aboutSection.style.pointerEvents = "auto";
+                }
+            });
+        </script> -->
+        <!-- <script>
             var lastScrollTop = 0;
             var navbarHeight = document.getElementById('mainNav').offsetHeight; // Adjust if your navbar height changes
         
@@ -301,15 +414,17 @@
         
                 if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
                     // Scrolling down, hide profile dashboard
-                    document.getElementById('profileDashboard').style.top = '-100%';
+                    // document.getElementById('profileDashboard').style.top = '-100%';
+                    document.getElementById('app').style.top = '-100%';
                 } else {
                     // Scrolling up, show profile dashboard
-                    document.getElementById('profileDashboard').style.top = '0';
+                    // document.getElementById('profileDashboard').style.top = '0';
+                    document.getElementById('app').style.top = '0';
                 }
         
                 lastScrollTop = currentScroll;
             });
-        </script>
+        </script> -->
 
 <script>
     // Function to navigate to the specified URL
@@ -423,5 +538,68 @@ showPersonalInformation();
         `;
     }
 </script>
+
+<script>
+    // JavaScript function to toggle between navbar and chat dashboard
+    function toggleChat() {
+        var chatDashboard = document.getElementById("chatDashboard");
+        if (chatDashboard.style.display === "none") {
+            chatDashboard.style.display = "block";
+        } else {
+            chatDashboard.style.display = "none";
+        }
+    }
+
+    // Add event listener to the chat link
+    document.getElementById("chatLink").addEventListener("click", toggleChat);
+</script>
+
+
+ <!-- Bootstrap and Font Awesome scripts -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+ <script>
+     document.addEventListener('DOMContentLoaded', function () {
+    // Add event listeners to friend elements
+    var friends = document.querySelectorAll('.friend');
+    friends.forEach(function(friend) {
+        friend.addEventListener('click', function() {
+            var menuId = this.getAttribute('data-menu');
+            var contentId = this.getAttribute('data-content');
+            showMenu(menuId);
+            showContent(contentId);
+        });
+    });
+});
+
+function showMenu(menuId) {
+    // Hide all menu options
+    var menuOptions = document.querySelectorAll('.menu-options');
+    menuOptions.forEach(function(menu) {
+        menu.style.display = 'none';
+    });
+    // Show the selected menu
+    var menuToShow = document.getElementById(menuId);
+    menuToShow.style.display = 'block';
+}
+
+function showContent(contentId) {
+    // Hide all content
+    var contents = document.querySelectorAll('.content > div');
+    contents.forEach(function(content) {
+        content.style.display = 'none';
+    });
+    // Show the selected content
+    var contentToShow = document.getElementById(contentId);
+    contentToShow.style.display = 'block';
+}
+
+function sendMessage() {
+    var message = document.querySelector('#send-message textarea').value;
+    // Here you can implement the logic to send the message
+    console.log("Message sent:", message);
+}
+
+    </script>
     </body>
 </html>

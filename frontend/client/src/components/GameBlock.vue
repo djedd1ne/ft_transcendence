@@ -14,20 +14,21 @@
       Player 2: {{ scores.player2 }}
     </div> -->
       <button @click="player(1)" style="position: absolute; left: 150px; top: 400px;">Player 1</button>
+      <button @click="player(0)" style="position: absolute; left: 290px; top: 400px;">Local</button>
       <button @click="player(2)" style="position: absolute; left: 430px; top: 400px;">Player 2</button>
+      <button @click="boot(111)" style="position: absolute; left: 150px; top: 440px;">Ai Boot :P</button>
+      <button @click="boot(null)" style="position: absolute; left: 420px; top: 440px;">X Boot</button>
       <!-- <button @click="boot(111)" style="position: absolute; left: 430px; top: 450px;">Boot Pro Max</button>
       <button @click="boot(222)" style="position: absolute; left: 150px; top: 450px;">Easy Boot</button> -->
       <button v-if="buttonClicked" @click="stop" style="position: absolute; left: 300px; top: 440px;">Pause</button>
       <button v-if="!buttonClicked" @click="start" style="position: absolute; left: 300px; top: 440px;">Play</button>
 
-      <div v-if="!buttonClicked" class="buttonChoices" id="buttonChoices" style="position: absolute; left: 290px; top: 350px;">
+      <!-- <div v-if="!buttonClicked" class="buttonChoices" id="buttonChoices" style="position: absolute; left: 290px; top: 350px;">
         <label>
-          <input type="radio" v-model="this.bootid" name="choice" value="222"> Easy
-        </label><br>
+          <input type="radio" v-model="this.bootid" name="choice" value="222"> Easy</label><br>
         <label>
-          <input type="radio" v-model="this.bootid" name="choice" value="111"> Hard
-        </label><br>
-      </div>
+          <input type="radio" v-model="this.bootid" name="choice" value="111"> Hard</label><br>
+      </div> -->
       <!-- <button @click="move('down')" style="position: absolute; left: 50px; top: 500px;">↓</button>
       <button @click="move('up')" style="position: absolute; left: 100px; top: 500px;">↑</button> -->
       <div class="digital-number" style="position: absolute; left: 255px; top: 20px;">{{ scores.player1 }}</div>
@@ -140,7 +141,7 @@
         intervalId: null,
         clientId: null,
         bootid: null,
-        buttonClicked: false
+        buttonClicked: false,
       }
     },
     created() {
@@ -242,7 +243,9 @@
       },
       player(num)
       {
-        if (num == 1)
+        if (num == 0)
+          this.clientId = 99;
+        else if (num == 1)
           this.clientId = 11;
         else
           this.clientId = 22;
@@ -267,10 +270,20 @@
         this.socket.emit("move", direction, this.clientId);
       },
       onKeyDown(event) {
+      if (event.key === ' ' || event.key === 'Spacebar') {
+        if (!this.buttonClicked)
+          this.start();
+        else
+          this.stop();
+      }
       if (event.key === 'ArrowDown') {
         this.move('down');}
       else if (event.key === 'ArrowUp') {
         this.move('up');}
+      if (event.key === 'w' || event.key === 'W') {
+        this.move('W');}
+      else if (event.key === 's' || event.key === 'S') {
+        this.move('S');}
     },
     async delay(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
