@@ -11350,16 +11350,42 @@ body {
   justify-content: center;
 }
 
-.game25 {
+.game5 {
   margin-top: 1px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px rgba(250, 250, 250, 0.1); */
   width: 100%;
   height: 100%;
   display: flex;
   margin-left: 10px;
-  
 }
+
+.game25 {
+  margin-top: 1px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  width: 0%;
+  height: 0%;
+  display: flex;
+  margin-left: 10px;
+  position: relative; /*Set position to relative*/
+}
+
+.X_btn {
+  position: absolute; /*Set position to absolute*/
+  top: -20px;
+  left: 150px;
+  /* background-color: #dc3545; Red background color */
+  color: #dc3545; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 0px 0px; /* Padding around the text */
+  cursor: pointer;
+}
+
+/* .X_btn:hover {
+  background-color: #c82333;
+} */
 
 #profileDashboard {
   position: fixed;
@@ -11370,7 +11396,7 @@ body {
   height: 60%;
   z-index: 1000;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent black background */
+  background-color: rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: center;
 }
@@ -11555,20 +11581,34 @@ body {
   transform: translateY(-2px); /* Move button up on hover */
 }
 
-/* Add fancy CSS styles here */
 #chatDashboard {
+  position: fixed;
+  margin-top: 166px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  z-index: 1000;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+}
+
+/* Add fancy CSS styles here */
+/* #chatDashboard {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
   width: 100%;
-  max-width: 800px; /* adjust as needed */
+  max-width: 800px; /* adjust as needed
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap; /* Allow flex items to wrap to the next line */
-  justify-content: space-between;
+  /*justify-content: space-between;
   animation: fadeIn 0.5s ease;
-}
+} */
 
 .friend-list, .menu, .content {
   padding: 20px;
@@ -11579,22 +11619,28 @@ body {
   flex-grow: 1; /* Allow items to grow and fill available space */
 }
 
+.friend-list, .menu, .content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease;
+}
 .friend-list {
-  flex-basis: 100%; /* Each part takes up full width initially */
-  margin-bottom: 10px; /* Add margin between parts */
+  width: 25%;
 }
-
-.menu, .content {
-  display: none; /* Initially hide menu and content */
+.menu {
+  width: 25%;
 }
-
+.content {
+  width: 25%;
+}
 .friend {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
 }
-
 .friend-avatar {
   width: 50px;
   height: 50px;
@@ -11602,25 +11648,20 @@ body {
   background-color: #ccc; /* placeholder color */
   margin-right: 10px;
 }
-
 .friend-name {
   font-weight: bold;
   margin-right: auto;
 }
-
 .menu-options {
   display: none;
 }
-
 .menu-options.show {
   display: block;
 }
-
 .menu-option {
   margin-bottom: 10px;
   cursor: pointer;
 }
-
 .right-section {
   border-left: 1px solid #ccc;
   padding-left: 20px;
@@ -11631,8 +11672,7 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }

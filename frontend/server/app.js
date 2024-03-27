@@ -3,7 +3,7 @@
 // const Socketio = require("socket.io")(Http);
 const ballVelocity = 6;
 const barVelocity = 30;
-var bootVelocity = 28;
+var bootVelocity = 25;
 var velocityPercent = 0;
 var directionX = Math.random() < 0.5 ? 1 : -1;
 var directionY = Math.random() < 0.5 ? 1 : -1;
@@ -178,7 +178,7 @@ io.on("connection", (socket) => {
     });
     socket.on("boot", data => {
             if (data == 111)
-                    bootVelocity = 29;
+                    bootVelocity = 25;
             positions2.ly = positions2.y;
             if (ballpositions.y < positions2.y)
                 positions2.y -= barVelocity - bootVelocity;

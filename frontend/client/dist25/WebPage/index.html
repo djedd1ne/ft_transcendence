@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>ft_Transendensce - Start Bootstrap Theme</title>
+        <title>ft_Transendensce</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -14,28 +15,36 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/file.css" rel="stylesheet" />
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap-grid.min.css">
-        <link rel="icon" href="../dist/css/app.fc5a8817.css">
+        <!-- <link rel="icon" href="../dist/css/app.fc5a8817.css"> -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wDh0Q8Hq2q/n8fWE3SI7Qz6AZRGc4lWI5J0WtJVIde/2Iu03FQ6ExmNdcaD9Gz03" crossorigin="anonymous">
-        <script src="../js/app.36740446.js" defer="defer">
+        <!-- <script src="../js/app.36740446.js" defer="defer"> -->
 
         </script> 
-        <script defer="defer" src="../js/chunk-vendors.6c2b39ce.js"></script>
+        <!-- <script defer="defer" src="../js/chunk-vendors.6c2b39ce.js"></script>
         <script defer="defer" src="../js/app.13edba59.js"></script>
         <link href="../dist/css/app.20c49b21.css" rel="stylesheet">
-        <script defer="defer" src="../dist25/js/chunk-vendors.46ee1ae4.js"></script>
+        <script defer="defer" src="../dist25/js/chunk-vendors.46ee1ae4.js"></script> -->
 
-        <script defer="defer" src="../js/chunk-vendors.46ee1ae4.js"></script>
-        <script defer="defer" src="../js/app.dcc82059.js"></script>
-        <link href="../css/app.0c6d5326.css" rel="stylesheet">
+        <!-- <script defer="defer" src="../js/chunk-vendors.46ee1ae4.js"></script>
+        <script defer="defer" src="../js/app.dcc82059.js"></script> -->
+        <!-- <link href="../css/app.0c6d5326.css" rel="stylesheet"> -->
         <link href="../WebPage/css/styles.css" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- /* New ref */ -->
+        <link rel="icon" href="../dist/css/app.fc5a8817.css">
+        <script src="../dist25/js/app.36740446.js" defer="defer"></script>
 
+        <script defer="defer" src="../js/chunk-vendors.2a62dfd0.js"></script>
+        <script defer="defer" src="../js/app.738d78ec.js"></script>
+        <link href="../css/app.fc3922c1.css" rel="stylesheet">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -48,10 +57,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../Game.html">Game</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Game</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" id="chatLink">Chat</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" id="profileLink">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#About">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -120,71 +129,49 @@
     </div>
 </div>
         
-<div class="game25" id="app2" style="display: none !important;">
-    <div class="game25" id="app">
-    </div>
-    <button onclick="toggleVisibility2()">[X]</button>
+<div class="game5" id="app2" style="display: none !important;">
+    <div class="X_btn"><button class="btn btn-danger" onclick="toggleVisibility2()">X</button></div>
+    <div class="game25" id="app"></div>
 </div>
 
         <!-- Chat Dashboard -->
-        <div id="chatDashboard">
-            <div class="friend-list">
-                <!-- Example list of friends -->
-                <!-- Friend 1 -->
-                <div class="friend" id="friend1" data-menu="menu1" data-content="send-message">
-                    <div class="friend-avatar"></div>
-                    <div class="friend-name">Friend 1</div>
+
+        <div class="dashboard">
+            <div class="square-container">
+              <div class="friend-list square" id="friendListSquare">
+                <ul id="friendsList">
+                  <!-- Friends will be dynamically added here -->
+                </ul>
+              </div>
+              <div class="conversation-area square" id="conversationSquare">
+                <div id="conversationContent">
+                  <!-- Conversation area content will be dynamically added here -->
                 </div>
-                <!-- Friend 2 -->
-                <div class="friend" id="friend2" data-menu="menu2" data-content="send-message">
-                    <div class="friend-avatar"></div>
-                    <div class="friend-name">Friend 2</div>
+                <div id="messageInputArea" style="display: none;">
+                  <input type="text" id="messageInput" placeholder="Type your message...">
+                  <button class="send-button">Send</button>
                 </div>
-                <!-- Friend 3 -->
-                <div class="friend" id="friend3" data-menu="menu3" data-content="send-message">
-                    <div class="friend-avatar"></div>
-                    <div class="friend-name">Friend 3</div>
-                </div>
+              </div>
             </div>
-            <div class="menu">
-                <!-- Menu content -->
-                <div id="menu1" class="menu-options">
-                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
-                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
-                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
-                </div>
-                <div id="menu2" class="menu-options">
-                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
-                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
-                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
-                </div>
-                <div id="menu3" class="menu-options">
-                    <div class="menu-option" onclick="showContent('send-message')">Send Message</div>
-                    <div class="menu-option" onclick="showContent('add-friend')">Add Friend</div>
-                    <div class="menu-option" onclick="showContent('invite-game')">Invite to Game</div>
-                </div>
-            </div>
-            <div class="content right-section">
-                <!-- Content placeholders for each action -->
-                <div id="send-message" style="display: none;">
-                    <textarea placeholder="Enter your message" style="font-size: 16px; width: 100%; height: 200px; border-radius: 10px;"></textarea>
-                    <button onclick="sendMessage()">Send</button>
-                </div>
-                <div id="add-friend" style="display: none;">
-                    Add Friend Form
-                </div>
-                <div id="invite-game" style="display: none;">
-                    Invite to Game Form
-                </div>
+          
+            <div class="square-container">
+              <div class="suggested-friends square" id="suggestedFriendsSquare">
+                <ul id="suggestedFriendsList">
+                  <!-- Suggested friends will be dynamically added here -->
+                  <li class="friend">
+                    <img class="avatar" src="avatar7.jpg" alt="Suggested Friend 1" style="display: none;">
+                    <span class="friend-name" style="display: none;">Suggested Friend 1</span>
+                    <button class="add" style="display: none;">+</button>
+                  </li>
+                  <!-- Add more suggested friends here -->
+                </ul>
+              </div>
             </div>
         </div>
         
-        
-    
-        
-    
-    
-</div>
+          
+          
+
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -208,7 +195,7 @@
                 <!-- Featured Project Row -->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/game3d.jpeg" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
+                    <div class="col-xl-4 col-lg-5" id="Game-project">
                         <div class="featured-text text-center text-lg-left">
                             <h4>PONG</h4>
                             <p class="text-black-50 mb-0">Pong is a table tennis–themed twitch arcade sports video game, featuring simple two-dimensional graphics, manufactured by Atari and originally released in 1972.</p>
@@ -294,7 +281,7 @@
             </div> -->
         </section>
         <!-- Contact-->
-        <section class="contact-section bg-black">
+        <section class="contact-section bg-black" id="About">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-3 mb-md-0">
@@ -343,7 +330,7 @@
 
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; 42 Heilbronn 2023</div></footer>
-        <!-- Bootstrap core JS-->
+        <!-- Bootstrap core JS for Navbar-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
@@ -352,7 +339,7 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             // JavaScript to toggle profile dashboard visibility and disable about section
             document.getElementById("profileLink").addEventListener("click", function (event) {
@@ -375,6 +362,11 @@
                 var element = document.getElementById("app2");
                 if (event.key.startsWith("Arrow")) {
                     // Prevent the default behavior of arrow key press
+                    if (element.style.display != "none") {
+                        event.preventDefault();}
+                }
+                if (event.key === ' ') {
+                    // Prevent the default behavior of SpaceBar key press
                     if (element.style.display != "none") {
                         event.preventDefault();}
                 }
@@ -539,67 +531,144 @@ showPersonalInformation();
     }
 </script>
 
+    <!--chat script-->
+
 <script>
-    // JavaScript function to toggle between navbar and chat dashboard
-    function toggleChat() {
-        var chatDashboard = document.getElementById("chatDashboard");
-        if (chatDashboard.style.display === "none") {
-            chatDashboard.style.display = "block";
+document.addEventListener("DOMContentLoaded", function() {
+    const chatLink = document.getElementById("chatLink");
+    const dashboard = document.querySelector(".dashboard");
+
+    // Hide the dashboard initially
+    dashboard.style.display = "none";
+
+    // Add event listener to the chat link
+    chatLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        toggleDashboard(); // Toggle the dashboard visibility
+    });
+
+    // Function to toggle the visibility of the dashboard
+    function toggleDashboard() {
+        if (dashboard.style.display === "none") {
+            dashboard.style.display = "block"; // Show the dashboard
         } else {
-            chatDashboard.style.display = "none";
+            dashboard.style.display = "none"; // Hide the dashboard
         }
     }
 
-    // Add event listener to the chat link
-    document.getElementById("chatLink").addEventListener("click", toggleChat);
+    // Rest of your existing JavaScript code here...
+
+    const friendsList = document.getElementById("friendsList");
+    const conversationSquare = document.getElementById("conversationSquare");
+    const suggestedFriendsList = document.getElementById("suggestedFriendsList");
+
+    // Dummy data for friends
+    const friendsData = [
+        { name: "Friend 1", avatar: "avatar1.jpg" },
+        { name: "Friend 2", avatar: "avatar2.jpg" },
+        { name: "Friend 3", avatar: "avatar3.jpg" },
+        { name: "Friend 4", avatar: "avatar4.jpg" },
+        { name: "Friend 5", avatar: "avatar5.jpg" },
+        { name: "Friend 6", avatar: "avatar6.jpg" }
+    ];
+
+    // Dummy data for suggested friends
+    const suggestedFriendsData = [
+        { name: "Suggested Friend 1", avatar: "avatar7.jpg" },
+        { name: "Suggested Friend 2", avatar: "avatar8.jpg" },
+        { name: "Suggested Friend 3", avatar: "avatar9.jpg" },
+        { name: "Suggested Friend 4", avatar: "avatar10.jpg" },
+        { name: "Suggested Friend 5", avatar: "avatar11.jpg" },
+        { name: "Suggested Friend 6", avatar: "avatar12.jpg" }
+    ];
+
+    // Populate friends list
+    friendsData.forEach((friend, index) => {
+        addFriendToList(friendsList, friend, index);
+    });
+
+    // Populate suggested friends list
+    suggestedFriendsData.forEach((suggestedFriend, index) => {
+        addFriendToList(suggestedFriendsList, suggestedFriend, index, true);
+    });
+
+    // Add event listener to options buttons in friends list
+    friendsList.addEventListener('click', function(e) {
+        if (e.target.classList.contains('options-btn')) {
+            const menu = e.target.nextElementSibling;
+            toggleMenu(menu);
+        } else if (e.target.classList.contains('send-message')) {
+            const friendName = e.target.closest('.friend').querySelector('.friend-name').textContent;
+            showConversationWithFriend(friendName);
+        } else if (e.target.classList.contains('delete')) {
+            const friend = e.target.closest('.friend');
+            friend.remove();
+        }
+    });
+
+    // Add event listener to options buttons in suggested friends list
+    suggestedFriendsList.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-button')) {
+            const index = e.target.dataset.index;
+            const friend = suggestedFriendsData[index];
+            addFriendToList(friendsList, friend, index);
+            e.target.remove(); // Remove the add button after adding friend
+        }
+    });
+
+    // Function to toggle options menu display
+    function toggleMenu(menu) {
+        const menus = document.querySelectorAll('.options-menu');
+        menus.forEach(m => {
+            if (m !== menu) {
+                m.style.display = 'none';
+            }
+        });
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Function to show conversation with a friend
+    function showConversationWithFriend(friendName) {
+        const conversationArea = document.createElement("div");
+        conversationArea.classList.add('conversation');
+        conversationArea.innerHTML = `
+            <h2>Conversation with ${friendName}</h2>
+            <div class="messages"></div>
+            <div class="input-container">
+                <input type="text" class="message-input" placeholder="Type your message...">
+                <button class="send-button">Send</button>
+            </div>
+        `;
+        conversationSquare.innerHTML = '';
+        conversationSquare.appendChild(conversationArea);
+    }
+
+    // Function to add a friend to the list
+    function addFriendToList(list, friend, index, isSuggested = false) {
+        const listItem = document.createElement("li");
+        listItem.classList.add("friend");
+        listItem.setAttribute('data-index', index);
+        listItem.innerHTML = `
+            <img class="avatar" src="${friend.avatar}" alt="${friend.name}">
+            <span class="friend-name">${friend.name}</span>
+            ${!isSuggested ? '<span class="options-btn">...</span>' : ''}
+            ${!isSuggested ? '<div class="options-menu" style="display:none;"><ul><li class="send-message">Send Message</li><li class="invite-game">Invite to Game</li><li class="delete">Delete</li><li class="block">Block</li></ul></div>' : ''}
+        `;
+        if (isSuggested) {
+            const addButton = document.createElement('button');
+            addButton.classList.add('add-button');
+            addButton.textContent = '+';
+            addButton.setAttribute('data-index', index);
+            listItem.appendChild(addButton);
+        }
+        list.appendChild(listItem);
+    }
+});
+
+
 </script>
 
 
- <!-- Bootstrap and Font Awesome scripts -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
- <script>
-     document.addEventListener('DOMContentLoaded', function () {
-    // Add event listeners to friend elements
-    var friends = document.querySelectorAll('.friend');
-    friends.forEach(function(friend) {
-        friend.addEventListener('click', function() {
-            var menuId = this.getAttribute('data-menu');
-            var contentId = this.getAttribute('data-content');
-            showMenu(menuId);
-            showContent(contentId);
-        });
-    });
-});
-
-function showMenu(menuId) {
-    // Hide all menu options
-    var menuOptions = document.querySelectorAll('.menu-options');
-    menuOptions.forEach(function(menu) {
-        menu.style.display = 'none';
-    });
-    // Show the selected menu
-    var menuToShow = document.getElementById(menuId);
-    menuToShow.style.display = 'block';
-}
-
-function showContent(contentId) {
-    // Hide all content
-    var contents = document.querySelectorAll('.content > div');
-    contents.forEach(function(content) {
-        content.style.display = 'none';
-    });
-    // Show the selected content
-    var contentToShow = document.getElementById(contentId);
-    contentToShow.style.display = 'block';
-}
-
-function sendMessage() {
-    var message = document.querySelector('#send-message textarea').value;
-    // Here you can implement the logic to send the message
-    console.log("Message sent:", message);
-}
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     </body>
 </html>

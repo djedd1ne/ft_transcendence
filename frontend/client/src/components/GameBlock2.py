@@ -141,11 +141,11 @@
         intervalId: null,
         clientId: null,
         bootid: null,
-        buttonClicked: false
+        buttonClicked: false,
       }
     },
     created() {
-      this.socket = io("http://172.17.243.217:3000");
+      this.socket = io("http://localhost:3000");
       // this.clientId = prompt("Enter client ID (11 or 22):");
       // this.newG();
       // this.socket.emit("identify", this.clientId);
@@ -244,7 +244,7 @@
       player(num)
       {
         if (num == 0)
-          this.clientId = 99; 
+          this.clientId = 99;
         else if (num == 1)
           this.clientId = 11;
         else
@@ -280,7 +280,7 @@
         this.move('down');}
       else if (event.key === 'ArrowUp') {
         this.move('up');}
-        if (event.key === 'w' || event.key === 'W') {
+      if (event.key === 'w' || event.key === 'W') {
         this.move('W');}
       else if (event.key === 's' || event.key === 'S') {
         this.move('S');}
