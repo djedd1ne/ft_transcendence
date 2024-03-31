@@ -3,6 +3,7 @@
   max-width: 1200px; /* Set maximum width to 1200px */
   margin: 50px auto;
   padding: 20px;
+  background-color: #ccc;
 }
 
 .square-container {
@@ -179,4 +180,55 @@
   width: 1200px;
   height: 360px;
   overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+.profile {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure content stays within the square */
+  padding: 20px;
+  width: 1140px;
+}
+
+.profile h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.profile p strong {
+  color: #000;
+}
+
+.profile-content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.welcome_dash{
+  text-align: center;
+  background-color: #45a049;
+  border-radius: 60px;
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.friends_header{
+  font-size: 30px;
+  text-align: center;
+  background-color: #45a049;
+  border-radius: 60px;
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-bottom: 20px;
 }

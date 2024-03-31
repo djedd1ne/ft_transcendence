@@ -137,8 +137,10 @@
         <!-- Chat Dashboard -->
 
         <div class="dashboard">
+            <h1 class="welcome_dash">welcome to your chatting dashboard</h1>
             <div class="square-container">
               <div class="friend-list square" id="friendListSquare">
+                  <h1 class="friends_header">friend list</h1>  
                 <ul id="friendsList">
                   <!-- Friends will be dynamically added here -->
                 </ul>
@@ -156,7 +158,9 @@
           
             <div class="square-container">
               <div class="suggested-friends square" id="suggestedFriendsSquare">
+                
                 <ul id="suggestedFriendsList">
+                    <h1 class="friends_header">friend list</h1>  
                   <!-- Suggested friends will be dynamically added here -->
                   <li class="friend">
                     <img class="avatar" src="avatar7.jpg" alt="Suggested Friend 1" style="display: none;">
@@ -167,6 +171,14 @@
                 </ul>
               </div>
             </div>
+            
+
+            <div class="profile square" id="profileSquare">
+                <div id="profileContent">
+                    <!-- Profile information will be dynamically added here -->
+                </div>
+            </div>
+
         </div>
         
           
@@ -537,7 +549,7 @@ showPersonalInformation();
 document.addEventListener("DOMContentLoaded", function() {
     const chatLink = document.getElementById("chatLink");
     const dashboard = document.querySelector(".dashboard");
-
+    
     // Hide the dashboard initially
     dashboard.style.display = "none";
 
@@ -652,7 +664,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <img class="avatar" src="${friend.avatar}" alt="${friend.name}">
             <span class="friend-name">${friend.name}</span>
             ${!isSuggested ? '<span class="options-btn">...</span>' : ''}
-            ${!isSuggested ? '<div class="options-menu" style="display:none;"><ul><li class="send-message">Send Message</li><li class="invite-game">Invite to Game</li><li class="delete">Delete</li><li class="block">Block</li></ul></div>' : ''}
+            ${!isSuggested ? '<div class="options-menu" style="display:none;"><ul><li class="send-message">Send Message</li><li class="invite-game">Invite to Game</li><li class="delete">Delete</li><li class="block">Block</li><li class="view-profile">view profile</li></ul></div>' : ''}
         `;
         if (isSuggested) {
             const addButton = document.createElement('button');
@@ -664,6 +676,34 @@ document.addEventListener("DOMContentLoaded", function() {
         list.appendChild(listItem);
     }
 });
+
+
+</script>
+
+<script>
+    // Dummy data for user profile
+const userProfile = {
+    name: "John Doe",
+    age: 30,
+    gender: "Male",
+    location: "New York",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo ac elit gravida varius."
+};
+
+// Function to populate profile information
+function populateProfile(profileContent) {
+    profileContent.innerHTML = `
+        <h2>${userProfile.name}</h2>
+        <p><strong>Age:</strong> ${userProfile.age}</p>
+        <p><strong>Gender:</strong> ${userProfile.gender}</p>
+        <p><strong>Location:</strong> ${userProfile.location}</p>
+        <p><strong>Bio:</strong> ${userProfile.bio}</p>
+    `;
+}
+
+// Call the function to populate profile information
+const profileContent = document.getElementById("profileContent");
+populateProfile(profileContent);
 
 
 </script>
